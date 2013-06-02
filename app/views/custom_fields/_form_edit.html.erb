@@ -1,0 +1,17 @@
+<%= form.fields_for :custom_fields_rights do |field| %>
+  <%= field.hidden_field :role_id %>
+  <tr>
+    <td>
+      <%= field.object.role %>
+    </td>
+    <td>
+      <%= field.radio_button :rights, '1', checked: (field.object.rights == 1) %>
+    </td>
+    <td>
+      <%= field.radio_button :rights, '2', checked: (field.object.rights == 2) %>
+    </td>
+    <td>
+      <%= field.radio_button :rights, '0' %>
+    </td>
+  </tr>
+<% end %>

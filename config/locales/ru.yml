@@ -1,0 +1,7 @@
+ru:
+  field_custom_fields_read_rights: "Могут читать поле:"
+  field_custom_fields_write_rights: "Могут изменять поле:"
+  role: 'Роль'
+  read: "Чтение"
+  write: "Изменение"
+  denied: "Нет доступа"

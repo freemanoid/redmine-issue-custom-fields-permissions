@@ -1,0 +1,6 @@
+= issue_custom_fields_rights
+
+TODO:
+1. fix many queries problems
+2. fix some hacky solutions
+3. validate params to protect from manual user injection (not by rendered form)

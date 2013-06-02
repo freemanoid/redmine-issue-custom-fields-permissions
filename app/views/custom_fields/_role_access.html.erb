@@ -1,0 +1,15 @@
+<p>
+  <table>
+    <tr>
+      <td><%= l(:role) %></td>
+      <td><%= l(:read) %></td>
+      <td><%= l(:write) %></td>
+      <td><%= l(:denied) %></td>
+    </tr>
+    <% if params[:action] == 'new' || params[:action] == 'create' %>
+      <%= render partial: 'form_new', locals: { form: form, custom_field: custom_field } %>
+    <% elsif params[:action] == 'edit' || params[:action] == 'update' %>
+      <%= render partial: 'form_edit', locals: { form: form, custom_field: custom_field } %>
+    <% end %>
+  </table>
+</p>
