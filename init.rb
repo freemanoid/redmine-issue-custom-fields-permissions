@@ -15,6 +15,8 @@ Rails.configuration.to_prepare do
   Issue.send                  :include, IssuePatch
   require 'query_patch'
   Query.send                  :include, QueryPatch
+  require 'context_menus_controller_patch'
+  ContextMenusController.send :include, ContextMenusControllerPatch
 end
 
 class ViewsHooks < Redmine::Hook::ViewListener
