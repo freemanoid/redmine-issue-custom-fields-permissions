@@ -25,7 +25,8 @@ module IssueCustomFieldPatch
           rights = rights.first.rights
           permited_actions = []
           permited_actions << :read if rights > 0
-          permited_actions << :write if rights > 1
+          permited_actions << :write << :edit if rights > 1
+          p permited_actions
           if action.is_a?(Symbol)
             permited_actions.include?(action)
           elsif action.is_a?(Array)
@@ -40,7 +41,7 @@ module IssueCustomFieldPatch
         if action.is_a?(Array)
           action.map { |action| allows_to?(action) }.reduce(:&)
         elsif action.is_a?(Symbol)
-          [:read, :write].include?(action)
+          [:read, :write, :edit].include?(action)
         else
           false
         end
