@@ -2,17 +2,19 @@ require 'redmine'
 
 Rails.configuration.to_prepare do
   require 'issue_custom_field_patch'
-  IssueCustomField.send :include, IssueCustomFieldPatch
+  IssueCustomField.send       :include, IssueCustomFieldPatch
   require 'role_patch'
-  Role.send             :include, RolePatch
+  Role.send                   :include, RolePatch
   require 'custom_fields_controller_patch'
   CustomFieldsController.send :include, CustomFieldsControllerPatch
   require 'user_patch'
-  User.send             :include, UserPatch
+  User.send                   :include, UserPatch
   require 'issues_helper_patch'
-  IssuesHelper.send     :include, IssuesHelperPatch
+  IssuesHelper.send           :include, IssuesHelperPatch
   require 'issue_patch'
-  Issue.send     :include, IssuePatch
+  Issue.send                  :include, IssuePatch
+  require 'query_patch'
+  Query.send                  :include, QueryPatch
 end
 
 class ViewsHooks < Redmine::Hook::ViewListener
