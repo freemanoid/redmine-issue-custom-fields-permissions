@@ -27,7 +27,6 @@ module CustomFieldsPermissions
             permited_actions = []
             permited_actions << :read if rights > 0
             permited_actions << :write << :edit if rights > 1
-            p permited_actions
             if action.is_a?(Symbol)
               permited_actions.include?(action)
             elsif action.is_a?(Array)
