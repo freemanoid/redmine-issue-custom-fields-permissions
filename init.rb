@@ -5,8 +5,6 @@ Rails.configuration.to_prepare do
   IssueCustomField.send       :include, CustomFieldsPermissions::IssueCustomFieldPatch
   require 'role_patch'
   Role.send                   :include, CustomFieldsPermissions::RolePatch
-  require 'custom_fields_controller_patch'
-  CustomFieldsController.send :include, CustomFieldsPermissions::CustomFieldsControllerPatch
   require 'user_patch'
   User.send                   :include, CustomFieldsPermissions::UserPatch
   require 'issues_helper_patch'
