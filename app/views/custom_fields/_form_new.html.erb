@@ -5,14 +5,18 @@
       <td>
         <%= field.object.role %>
       </td>
+      <% if params[:custom_field] && params[:custom_field][:custom_fields_rights_attributes]
+           rights = params[:custom_field][:custom_fields_rights_attributes].find { |e| e[1]['role_id'] == role.id.to_s }
+       rights = rights[1]['rights'] if rights
+         end %>
       <td>
-        <%= field.radio_button :rights, '1', checked: (field.object.rights == 1) %>
+        <%= field.radio_button :rights, '1', checked: rights == '1' %>
       </td>
       <td>
-        <%= field.radio_button :rights, '2', checked: (field.object.rights == 2) %>
+        <%= field.radio_button :rights, '2', checked: rights == '2' %>
       </td>
       <td>
-        <%= field.radio_button :rights, '0' %>
+        <%= field.radio_button :rights, '0', checked: (rights == '0') || !%w(1 2).include?(rights) %>
       </td>
     </tr>
   <% end %>
