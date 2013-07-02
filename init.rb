@@ -1,19 +1,19 @@
 require 'redmine'
 
 Rails.configuration.to_prepare do
-  require 'issue_custom_field_patch'
+  require File.join(File.dirname(__FILE__), 'lib', 'issue_custom_field_patch')
   IssueCustomField.send       :include, CustomFieldsPermissions::IssueCustomFieldPatch
-  require 'role_patch'
+  require File.join(File.dirname(__FILE__), 'lib', 'role_patch')
   Role.send                   :include, CustomFieldsPermissions::RolePatch
-  require 'user_patch'
+  require File.join(File.dirname(__FILE__), 'lib', 'user_patch')
   User.send                   :include, CustomFieldsPermissions::UserPatch
-  require 'issues_helper_patch'
+  require File.join(File.dirname(__FILE__), 'lib', 'issues_helper_patch')
   IssuesHelper.send           :include, CustomFieldsPermissions::IssuesHelperPatch
   require File.join(File.dirname(__FILE__), 'lib', 'issue_patch')
   Issue.send                  :include, CustomFieldsPermissions::IssuePatch
-  require 'query_patch'
+  require File.join(File.dirname(__FILE__), 'lib', 'query_patch')
   Query.send                  :include, CustomFieldsPermissions::QueryPatch
-  require 'context_menus_controller_patch'
+  require File.join(File.dirname(__FILE__), 'lib', 'context_menus_controller_patch')
   ContextMenusController.send :include, CustomFieldsPermissions::ContextMenusControllerPatch
 end
 
